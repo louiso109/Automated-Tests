@@ -1,7 +1,11 @@
 /// <reference types="cypress" />
 
+import { loginPage } from "./LoginPO"
+
+describe('login', () => {
+    const LoginPage = new loginPage()
 beforeEach(() => {
-    cy.visit('https://practicetestautomation.com/practice-test-login/')
+    LoginPage.navigate()
     cy.get('.custom-logo')
 })
 
@@ -30,4 +34,5 @@ it('positive password & username test', function() {
     cy.get('strong').should('exist') // DOM element exists
     cy.get('.wp-block-button__link').should('exist') // DOM element exists
     cy.get('.wp-block-button__link').click()
+})
 })

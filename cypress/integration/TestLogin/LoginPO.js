@@ -42,8 +42,7 @@ export class loginPage {
     DOM_Elements_Login_Page() {
         describe('login', () => {
             const Page_Validation = new pageValidation()
-
-        Page_Validation.Login_Page_Validation()
+        Page_Validation.Login_Page_Validation() //referencing PageObjectPO.js
         
     })
     }
@@ -51,11 +50,10 @@ export class loginPage {
     DOM_Elements_Successful_Login () {
         describe('login', () => {
             const Page_Validation = new pageValidation()
-
-        Page_Validation.Login_Success_Page_Validation()   
+        Page_Validation.Login_Success_Page_Validation() //referencing PageObjectPO.js   
 
     })
-}
+    }
 
     Submit() {
         cy.get('#submit').click()

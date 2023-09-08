@@ -40,6 +40,5 @@ it('Should log out', function() {
     LoginPage.Sucesssful_Login_URL()
     LoginPage.LogOut()
 })
-
 })
 

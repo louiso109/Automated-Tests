@@ -4,35 +4,42 @@ import { loginPage } from "./LoginPO"
 
 describe('login', () => {
     const LoginPage = new loginPage()
+
 beforeEach(() => {
-    LoginPage.navigate()
-    cy.get('.custom-logo')
+    LoginPage.Navigate()
+    LoginPage.DOM_Elements_Login_Page()
 })
 
-it('negitive password test', function() {    
-    cy.get('#username').type('student')
-    cy.get('#password').type('test')
-    cy.get('#submit').click()
-    cy.get('#error').should('exist')
+it('Incorrect username test', function() {
+    LoginPage.Username_Incorrect()
+    LoginPage.Submit()
+    LoginPage.Incorrect_Password_Error()
+})
+
+
+it('Inccorrect password test', function() {    
+    LoginPage.Password_Incorrect()
+    LoginPage.Submit()
+    LoginPage.Incorrect_Username_Error()
 
 })
 
-it('negitive username test', function() {
-    cy.get('#username').type('test')
-    cy.get('#password').type('Password123')
-    cy.get('#submit').click()
-    cy.get('#error').should('exist')
+it('Correct password & correct username test', function() {
+    LoginPage.Username_Correct()
+    LoginPage.Password_Correct()
+    LoginPage.Submit()
+    LoginPage.Sucesssful_Login_URL()
+    LoginPage.DOM_Elements_Successful_Login()
+    
 })
 
-it('positive password & username test', function() {
-    cy.get('#username').type('student')
-    cy.get('#password').type('Password123')
-    cy.get('#submit').click()
-    cy.url().should('include', 'practicetestautomation.com/logged-in-successfully/') // url contains the correct text => true
-    cy.url().should('eq', 'https://practicetestautomation.com/logged-in-successfully/') // url is correct => true
-    cy.get('.post-title').should('exist') // DOM element exists
-    cy.get('strong').should('exist') // DOM element exists
-    cy.get('.wp-block-button__link').should('exist') // DOM element exists
-    cy.get('.wp-block-button__link').click()
+it('Should log out', function() {  
+    LoginPage.Username_Correct()
+    LoginPage.Password_Correct()
+    LoginPage.Submit()
+    LoginPage.Sucesssful_Login_URL()
+    LoginPage.LogOut()
 })
+
 })
+

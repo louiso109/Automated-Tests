@@ -1,3 +1,3 @@
 it('test', () =>
-cy.visit('https://www.google.com/')
+cy.visit('http://localhost:3000')
 )

@@ -11,5 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "9.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "http-server": "^14.1.1",
+    "localhost": "^0.4.1"
   }
 }

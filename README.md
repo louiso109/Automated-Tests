@@ -1,5 +1,12 @@
 
 FILE NAME
+
+node -v
+(shows version of node)
+
+git remote -v
+(shows remote connected to)
+
 spec.cy.js
 ".cy" part makes it easier to find tests in larger projects
 
@@ -38,6 +45,7 @@ git commit -m “first commit”
 
 git push -u origin master
 
+(^"origin" - remote name)
 (^"master" - branch name)
 
 TERMINAL COMMANDS:

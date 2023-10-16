@@ -6,7 +6,6 @@ module.exports = defineConfig({
             //implemnet code listners here
         },
     },
-    baseUrl: 'http://localhost:3000',
     viewportheight: 550,
     viewportwidth: 660
 });

@@ -23,7 +23,6 @@ export class exceptionsPage {
 
     Add_Item() {
         cy.get('#add_btn').click()
-        
     }
 
     Remove_Item() {
@@ -32,4 +31,4 @@ export class exceptionsPage {
         cy.get('#confirmation').should('exist')
     }
 
-}
+    }

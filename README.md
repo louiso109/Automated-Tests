@@ -63,5 +63,4 @@ git status
 
  git checkout master
     ( switches to the branchname, if I am on a branch called feature then it will switch to master)
-
-:)
+:

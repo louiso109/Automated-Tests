@@ -63,4 +63,6 @@ git status
 
  git checkout master
     ( switches to the branchname, if I am on a branch called feature then it will switch to master)
-:
+
+git rebase master 
+(if working on feature branch and want current files pulled from the master branch)

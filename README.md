@@ -51,6 +51,8 @@ git push -u origin master
 TERMINAL COMMANDS:
 npx cypress open (UI)
 
+npx cypress run (run in the terminal)
+
 GIT COMMANDS:
 git rebase origin/master 
     (to update branch to master if I am on feature/development/bugfixes branch)
@@ -66,3 +68,12 @@ git status
 
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
+
+CYPRESS QUERIES:
+cy.get
+
+cy.contains()
+
+cy.within()
+
+cy.root()

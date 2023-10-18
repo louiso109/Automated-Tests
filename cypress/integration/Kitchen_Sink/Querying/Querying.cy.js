@@ -1,7 +1,7 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
-import { queryingPO } from "./QueryingPO";
+import { queryingPO } from "./QueryingPO.cy.";
 
 describe('querying', () => {
     const QueryingPO = new queryingPO()
@@ -72,9 +72,45 @@ it('Should pass a regexp to .contains', function() {
 
 
 //.within()
+//find elements within a specific DOM element
+    it('should find elements within a specific DOM element', function() {
+        cy.get('.query-form').within(() => {
+            cy.get('input:first').should('have.attr', 'placeholder', 'Email')
+            cy.get('input:last').should('have.attr', 'placeholder', 'Password')
+        })
+    })
+
 
 //cy.root()
+// find the root dom element
+it('should find the root DOM element', function() {
+    // By default, root is the document
+cy.root().should('match', 'html')
 
-//Best Practices: Selecting Elements
+cy.get('.query-ul').within(() => {
+  // In this within, the root is now the ul DOM element
+  cy.root().should('have.class', 'query-ul')
+})
+})
+
+//Best practices for querying to select elements
+//from worst approah to best approach
+it('should select the element', function() {
+    // Worst - too generic, no context
+
+    // Bad. Coupled to styling. Highly subject to change.
+
+    // Average. Coupled to the `name` attribute which has HTML semantics.
+
+    // Better. But still coupled to styling or JS event listeners.
+
+    // Slightly better. Uses an ID but also ensures the element
+    // has an ARIA role attribute
+
+    // Much better. But still coupled to text content that may change.
+
+    // Best. Insulated from all changes.
+
+})
 
 })

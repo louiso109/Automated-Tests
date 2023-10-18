@@ -69,7 +69,7 @@ git status
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
 
-CYPRESS QUERIES:
+CYPRESS QUERYING:
 cy.get
 
 cy.contains()

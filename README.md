@@ -78,3 +78,21 @@ cy.within()
 
 cy.root()
 
+<<<<<<< feature
+git rebase master 
+(if working on feature branch and want current files pulled from the master branch)
+
+CYPRESS QUERYING:
+cy.get
+
+cy.contains()
+
+cy.within()
+
+cy.root()
+
+git rebase master 
+(if working on feature branch and want current files pulled from the master branch)
+
+=======
+>>>>>>> master

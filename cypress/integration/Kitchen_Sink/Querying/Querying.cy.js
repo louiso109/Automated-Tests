@@ -1,6 +1,8 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
+import { queryingPO } from "./QueryingPO.cy"
+
 describe('querying', () => {
     const QueryingPO = new queryingPO()
     
@@ -67,33 +69,14 @@ it('Should pass a regexp to .contains', function() {
 
 })
 
-
 //.within()
-//find elements within a specific DOM element
-    it('should find elements within a specific DOM element', function() {
-        cy.get('.query-form').within(() => {
-            cy.get('input:first').should('have.attr', 'placeholder', 'Email')
-            cy.get('input:last').should('have.attr', 'placeholder', 'Password')
-        })
-    })
-
 
 //cy.root()
-// find the root dom element
-it('should find the root DOM element', function() {
-    // By default, root is the document
-cy.root().should('match', 'html')
 
-cy.get('.query-ul').within(() => {
-  // In this within, the root is now the ul DOM element
-  cy.root().should('have.class', 'query-ul')
-})
-})
+//Best Practices: Selecting Elements
 
 //Best practices for querying to select elements
 //from worst approah to best approach
-it('should select the element', function() {
 
-})
 
 })

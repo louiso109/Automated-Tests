@@ -1,13 +1,14 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
+import { queryingPO } from "./QueryingPO.cy"
+
 describe('querying', () => {
     const QueryingPO = new queryingPO()
     
 beforeEach(() => {   
     QueryingPO.Navigate()
 })
-
 
 //cy.get()
 //Can use any of the following to query the element:

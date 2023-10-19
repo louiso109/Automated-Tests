@@ -1,8 +1,6 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
-import { queryingPO } from "./QueryingPO.cy.";
-
 describe('querying', () => {
     const QueryingPO = new queryingPO()
     
@@ -96,20 +94,6 @@ cy.get('.query-ul').within(() => {
 //Best practices for querying to select elements
 //from worst approah to best approach
 it('should select the element', function() {
-    // Worst - too generic, no context
-
-    // Bad. Coupled to styling. Highly subject to change.
-
-    // Average. Coupled to the `name` attribute which has HTML semantics.
-
-    // Better. But still coupled to styling or JS event listeners.
-
-    // Slightly better. Uses an ID but also ensures the element
-    // has an ARIA role attribute
-
-    // Much better. But still coupled to text content that may change.
-
-    // Best. Insulated from all changes.
 
 })
 

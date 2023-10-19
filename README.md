@@ -81,5 +81,17 @@ cy.root()
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
 
+CYPRESS QUERYING:
+cy.get
+
+cy.contains()
+
+cy.within()
+
+cy.root()
+
+git rebase master 
+(if working on feature branch and want current files pulled from the master branch)
+
 SELECTING ELEMENTS:
 Targeting the element above by tag, class or id is very volatile and highly subject to change. You may swap out the element, you may refactor CSS and update ID's, or you may add or remove classes that affect the style of the element.  Instead, adding the data-cy attribute to the element gives us a targeted selector that's only used for testing.  The data-cy attribute will not change from CSS style or JS behavioral changes, meaning it's no coupled to the behavior or styling of an element.  Additionally, it makes it clear to everyone that this element is used directly by test code.

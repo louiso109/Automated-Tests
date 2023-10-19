@@ -8,7 +8,6 @@ beforeEach(() => {
     QueryingPO.Navigate()
 })
 
-
 //cy.get()
 //Can use any of the following to query the element:
 it('Should query the button using the cy.get command', function () {

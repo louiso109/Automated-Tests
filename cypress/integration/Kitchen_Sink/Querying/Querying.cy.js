@@ -1,7 +1,7 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
-import { queryingPO } from "./QueryingPO.cy";
+import { queryingPO } from "./QueryingPO.cy"
 
 describe('querying', () => {
     const QueryingPO = new queryingPO()

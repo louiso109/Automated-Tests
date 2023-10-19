@@ -1,7 +1,7 @@
 //Best practices when using cypress to query
 /// <reference types="cypress" />
 
-import { queryingPO } from "./QueryingPO.cy"
+import { queryingPO } from "./QueryingPO.cy";
 
 describe('querying', () => {
     const QueryingPO = new queryingPO()
@@ -69,55 +69,14 @@ it('Should pass a regexp to .contains', function() {
 
 })
 
-
 //.within()
-//find elements within a specific DOM element
-    it('should find elements within a specific DOM element', function() {
-        cy.get('.query-form').within(() => {
-            cy.get('input:first').should('have.attr', 'placeholder', 'Email')
-            cy.get('input:last').should('have.attr', 'placeholder', 'Password')
-        })
-    })
-
 
 //cy.root()
-// find the root dom element
-it('should find the root DOM element', function() {
-    // By default, root is the document
-cy.root().should('match', 'html')
 
-cy.get('.query-ul').within(() => {
-  // In this within, the root is now the ul DOM element
-  cy.root().should('have.class', 'query-ul')
-})
-})
+//Best Practices: Selecting Elements
 
 //Best practices for querying to select elements
 //from worst approah to best approach
-it('should select the element', function() {
-    //Worst - too generic, no context
-    //cy.get('button').click()
-    //Bad. Coupled to styling. Highly subject to change.
-    //cy.get('.btn.btn-large').click()
-    //Average. Coupled to the `name` attribute which has HTML semantics.
-    //cy.get('#main').click()
-    // Better. But still coupled to styling or JS event listeners.
-    //cy.get('[name="submission"]').click()
-    //Slightly better. Uses an ID but also ensures the element
-    //has an ARIA role attribute
-    //cy.get('#main[role=button]').click()
-    //cy.contains('Submit').click()
-    // Much better. But still coupled to text content that may change.
-    //cy.contains('Submit').click()
 
-    //Best. Insulated from all changes.
-    //USE THIS BY INSPECTING THE HTML ELEMENT USE DATA-CY
-    //Targeting the element above by tag, class or id is very volatile and highly subject to change. 
-    //You may swap out the element, you may refactor CSS and update ID's, or you may add or remove classes that affect the style of the element.
-    //Instead, adding the data-cy attribute to the element gives us a targeted selector that's only used for testing.
-    //The data-cy attribute will not change from CSS style or JS behavioral changes, meaning it's no coupled to the behavior or styling of an element.
-    //Additionally, it makes it clear to everyone that this element is used directly by test code.
-    cy.get('[data-cy="submit"]').click()
-})
 
 })

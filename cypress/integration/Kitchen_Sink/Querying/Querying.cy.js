@@ -94,7 +94,7 @@ it('should find the root DOM element', function () {
 //from worst approah to best approach
 it('should click the button', function () {
     //Worst - too generic, no context.
-    cy.get('button').click()
+    //cy.get('button').click()
     //Bad. Coupled to styling. Highly subject to change.
     cy.get('.btn.btn-large').click()
     //Better. But still coupled to styling or JS event listeners.
@@ -109,6 +109,4 @@ it('should click the button', function () {
     // Best. Insulated from all changes.
     cy.get('[data-cy=submit]').click()
 })
-
-
 })

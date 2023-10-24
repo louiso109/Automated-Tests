@@ -110,6 +110,6 @@ When determining a unique selector, it will automatically prefer elements with:
     data-test
     data-testid
 
-    test
 
+    test
 

@@ -10,6 +10,20 @@ beforeEach(() => {
     ActionsPO.Navigate()
 })
 
+
+
+//.click
+//.dblclick
+//.rightclick
+//.type
+//.clear
+//.check
+//.uncheck
+//.select()
+//.trigger()
+//.selectFile()
+
+
 //.type()
 it('should type into the DOM element', function() {
     cy.get('.action-email')
@@ -117,7 +131,11 @@ it('should right click the imput field to edit the DOM element', function () {
 //.check()
 //by default .check will check all
 //checks radio buttons in succession one after the other
+
 it('should check the radio or radio button', function () {
+
+it.only('should check the radio or radio button', function () {
+
     cy.get('.action-checkboxes [type = "checkbox"]').not('[disabled]')
         .check().should('be.checked')
 
@@ -129,6 +147,7 @@ it('should check the radio or radio button', function () {
         .check('radio1').should('be.checked')
 
 //accepts an array of values relateding to the names of the checkboxes
+
 
 })
 
@@ -244,5 +263,9 @@ it.only('should trigger an event on the DOM element', function () {
         .get('input[type=range]').siblings('p')
         .should('have.text', '50')
 })
+    
+
+})
+
 
 })

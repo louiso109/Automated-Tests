@@ -78,7 +78,7 @@ cy.within()
 
 cy.root()
 
-<<<<<<< feature
+
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
 
@@ -94,6 +94,7 @@ cy.root()
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
 
+
 QUERYING BEST PRACTICES
 Targeting the element above by tag, class or id is very volatile and highly subject to change. You may swap out the element, you may refactor CSS and update ID's, or you may add or remove classes that affect the style of the element.
 
@@ -108,3 +109,5 @@ When determining a unique selector, it will automatically prefer elements with:
     data-cy
     data-test
     data-testid
+
+

@@ -1,3 +1,4 @@
+NEW PROJECT SETUP IN GITHUB & VS CODE:
 
 FILE NAME
 
@@ -69,33 +70,9 @@ git status
 git rebase master 
 (if working on feature branch and want current files pulled from the master branch)
 
-CYPRESS QUERYING:
-cy.get
+git rebase origin master
 
-cy.contains()
-
-cy.within()
-
-cy.root()
-
-
-git rebase master 
-(if working on feature branch and want current files pulled from the master branch)
-
-CYPRESS QUERYING:
-cy.get
-
-cy.contains()
-
-cy.within()
-
-cy.root()
-
-git rebase master 
-(if working on feature branch and want current files pulled from the master branch)
-
-
-QUERYING BEST PRACTICES
+CYPRESS QUERYING BEST PRACTICES:
 Targeting the element above by tag, class or id is very volatile and highly subject to change. You may swap out the element, you may refactor CSS and update ID's, or you may add or remove classes that affect the style of the element.
 
 Instead, adding the data-cy attribute to the element gives us a targeted selector that's only used for testing.
@@ -109,6 +86,10 @@ When determining a unique selector, it will automatically prefer elements with:
     data-cy
     data-test
     data-testid
+
+AWESOME SITES TO TEST ON:
+https://practicetestautomation.com/practice-test-exceptions/
+https://github.com/BMayhew/awesome-sites-to-test-on/blob/main/readme.md
 
 
     test

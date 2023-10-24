@@ -70,6 +70,7 @@ it('Should pass a regexp to .contains', function() {
 })
 
 //.within()
+
 it('should can find elements within a specific DOM element', function() {
     cy.get('.query-form').within(() => {
         cy.get('input:first').should('have.attr', 'placeholder', 'Email')
@@ -89,9 +90,11 @@ it('should find the root DOM element', function () {
 })
 
 
+
 //Best Practices: Selecting Elements
 //Best practices for querying to select elements
 //from worst approah to best approach
+
 it('should click the button', function () {
     //Worst - too generic, no context.
     //cy.get('button').click()
@@ -109,4 +112,5 @@ it('should click the button', function () {
     // Best. Insulated from all changes.
     cy.get('[data-cy=submit]').click()
 })
+
 })

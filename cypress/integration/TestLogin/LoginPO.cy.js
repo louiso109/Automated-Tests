@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { pageValidation } from "./Page_ValidationPO"
+import { pageValidation } from "./Page_ValidationPO.cy"
 
 export class loginPage {
     

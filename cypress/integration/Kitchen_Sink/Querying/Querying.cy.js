@@ -38,7 +38,7 @@ it('Should get its attribute by invoking the .attr() method', function() {
 
 //cy.contains()
 //find the elements by their content using cy.contains()
-it('Should query the list to find the third element "bananas"', function () {
+it('Should query the list to find the specified element', function () {
     cy.get('.query-list')    
         .contains('apples').should('have.class', 'first') //<li class="first"></li>
     cy.get('.query-list')
@@ -71,12 +71,46 @@ it('Should pass a regexp to .contains', function() {
 
 //.within()
 
+it('should can find elements within a specific DOM element', function() {
+    cy.get('.query-form').within(() => {
+        cy.get('input:first').should('have.attr', 'placeholder', 'Email')
+        cy.get('input:last').should('have.attr', 'placeholder', 'Password')
+      })
+})
+
 //cy.root()
+// By default, root is the document
+it('should find the root DOM element', function () {
+    cy.root().should('match', 'html')
+
+    cy.get('.query-ul').within(() => {
+      // In this within, the root is now the ul DOM element
+      cy.root().should('have.class', 'query-ul')
+    })
+})
+
+
 
 //Best Practices: Selecting Elements
-
 //Best practices for querying to select elements
 //from worst approah to best approach
 
+it('should click the button', function () {
+    //Worst - too generic, no context.
+    //cy.get('button').click()
+    //Bad. Coupled to styling. Highly subject to change.
+    cy.get('.btn.btn-large').click()
+    //Better. But still coupled to styling or JS event listeners.
+    cy.get('#main').click()
+    //Slighly better.  But coupled to the name attribute which has HTML semantics.
+    cy.get('[name="submission"]').click()
+    //// Slightly better. Uses an ID but also ensures the element
+    // has an ARIA role attribute
+    cy.get('#main[role=button]').click()
+    // Much better. But still coupled to text content that may change.
+    cy.contains('Submit').click()
+    // Best. Insulated from all changes.
+    cy.get('[data-cy=submit]').click()
+})
 
 })

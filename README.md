@@ -75,5 +75,3 @@ git rebase origin master
 AWESOME SITES TO TEST ON:
 https://practicetestautomation.com/practice-test-exceptions/
 https://github.com/BMayhew/awesome-sites-to-test-on/blob/main/readme.md
-
-

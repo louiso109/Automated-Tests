@@ -38,7 +38,6 @@ import { traversalPO } from "./TraversalPO.cy";
             .should('contain', 'Data')
     })
 
-
     //.closest()
     //To get the closest ancestor DOM element, use the .closest() command.
 
@@ -54,7 +53,7 @@ import { traversalPO } from "./TraversalPO.cy";
     it('should select a DOM element by index from a collection', function () {
         cy.get('.traversal-list>li')
             .eq(1).should('contain', 'siamese')
-})
+    })
 
     //.filter()
     //To get DOM elements that match a specific selector, use the .filter() command.
@@ -62,7 +61,7 @@ import { traversalPO } from "./TraversalPO.cy";
     it('should filter elements with a selector.', function () {
         cy.get('.traversal-nav>li')
             .filter('.active').should('contain', 'About')
-})
+    })
 
     //.find()
     //To get descendant DOM elements of the selector, use the .find() command.
@@ -114,26 +113,55 @@ import { traversalPO } from "./TraversalPO.cy";
     it('should get all following sibling elements until reaching a selector', function() {
         cy.get('#veggies')
             .nextUntil('#nuts').should('have.length', 3)
-})
+    })
 
-//.not()
+    //.not()
+    it('should remove DOM element(s) from the set of elements', function() {
+        cy.get('.traversal-disabled .btn')
+            .not('[disabled]')
+    })
 
+    //.parent()
+    it('should get the parent DOM element of elements', function() {
+        cy.get('.traversal-mark')
+            .parent().should('contain', 'Morbi leo risus')
+    })
 
-//.parent()
+    //.parents()
+    it('should get parents DOM element of elements', function() {
+        cy.get('.traversal-cite')
+            .parents().should('match', 'blockquote')
+    })
 
+    //.parentsUntil()
+    it('should get parents of elements until other element', function() {
+        cy.get('.clothes-nav')
+            .find('.active')
+            .parentsUntil('.clothes-nav')
+            .should('have.length', 2)
+    })
 
-//.parents()
+    //.prev()
+    it('should get the prevous sibling of the DOM element within elements', function() {
+        cy.get('.birds').find('.active')
+            .prev().should('contain', 'Lorikeets')
+    })
 
+    //.prevAll()
+    it('should get all previous DOM elements within DOM elements', function() {
+        cy.get('.fruits-list').find('.third')
+            .prevAll().should('have.length', 2)
+    })
 
-//.parentsUntil()
+    //.prevUntil()
+    it('should get all previous sibling DOM elements within elements until other element', function() {
+        cy.get('.foods-list').find('#nuts')
+            .prevUntil('#veggies').should('have.length', 3)
+    })
 
-
-//.prev()
-
-
-//.prevUntil()
-
-
-//.siblings()
-
+    //.siblings()
+    it('should get all sibling DOM elements of elements', function() {
+        cy.get('.traversal-pills .active')
+            .siblings().should('have.length', 2)
+    })
 })

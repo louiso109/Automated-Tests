@@ -60,6 +60,7 @@ git rebase origin/master
 
 git pull
     (if branch is one commit ahead)
+    (to pull latest code from repo)
 
 git status
  (shows files that are staged for commit)

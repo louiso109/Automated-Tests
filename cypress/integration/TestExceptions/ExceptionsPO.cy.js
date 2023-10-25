@@ -10,7 +10,6 @@ export class exceptionsPage {
         cy.get('#edit_btn').click()
         cy.get('#save_btn').click()
         cy.get('#confirmation').should('exist')
-    
     }   
 
     Edit_Item() {
@@ -31,4 +30,4 @@ export class exceptionsPage {
         cy.get('#confirmation').should('exist')
     }
 
-    }
+}

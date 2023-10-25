@@ -1,5 +1,19 @@
-//Best practices when using cypress to query
 /// <reference types="cypress" />
+
+//.type()
+//.focus()
+//.blur()
+//.clear
+//.submit()
+//.click()
+//.dblclick()
+//.rightclick()
+//.check()
+//.uncheck()
+//.select()
+//.scrollIntoView()
+//cy.scollTo
+//.trigger()
 
 import { actionsPO } from "./ActionsPO.cy"
 
@@ -9,20 +23,6 @@ describe('actions', () => {
 beforeEach(() => {   
     ActionsPO.Navigate()
 })
-
-
-
-//.click
-//.dblclick
-//.rightclick
-//.type
-//.clear
-//.check
-//.uncheck
-//.select()
-//.trigger()
-//.selectFile()
-
 
 //.type()
 it('should type into the DOM element', function() {
@@ -148,7 +148,62 @@ it.only('should check the radio or radio button', function () {
 
 //accepts an array of values relateding to the names of the checkboxes
 
+})
 
+//.uncheck()
+//to uncheck a checkbox or radio, use the .uncheck() command.
+it('should by default uncheck the checkboxes in sucession one after the other', function () {
+    cy.get('.action-check [type="checkbox"]')
+        .not('[disabled]')
+        .uncheck().should('not.be.checked')
+
+//.uncheck() accepts a value argument
+    cy.get('.action-check [type="checkbox"]')
+        .check('checkbox1')
+        .uncheck('checkbox1').should('not.be.checked')
+        
+//.uncheck() accepts an array of values e.g checkbox 1 and checkbox 3 can be unchecked
+    cy.get('.action-check [type="checkbox"]')
+        .check(['checkbox1', 'checkbox3'])
+        .uncheck(['checkbox1', 'checkbox3']).should('not.be.checked')        
+
+//ignore error checking prior to unchecking
+    cy.get('.action-check [disabled]')
+        .uncheck({ force: true }).should('not.be.checked')
+
+})
+
+//.select()
+it('should select an option', function() {
+//at first no option should be selected
+    cy.get('.action-select')
+        .should('have.value', '--Select a fruit--')
+
+//select option(s) with matching text content
+    cy.get('.action-select').select('apples')
+    //confirm that the apples were selected
+    //note that each element starts with "fr-" in our HTML
+    cy.get('.action-select').should('have.value', 'fr-apples')
+
+    cy.get('.action-select-multiple')
+        .select(['apples', 'oranges', 'bananas'])
+        //when getting multiple values, invoke "val" method first
+        .invoke('val')
+        .should('deep.equal', ['fr-apples', 'fr-oranges', 'fr-bananas'])
+
+    //select option(s) with matching value    
+    cy.get('.action-select').select('fr-bananas')
+        //can attach an assertion right away to the element
+        .should('have.value', 'fr-bananas')
+
+
+    cy.get('.action-select-multiple')
+        .select(['fr-apples', 'fr-oranges', 'fr-bananas'])
+        .invoke('val')
+        .should('deep.equal', ['fr-apples', 'fr-oranges', 'fr-bananas'])
+        //assert the selected values include oranges
+        cy.get('.action-select-multiple')
+        .invoke('val').should('include', 'fr-oranges')
 })
 
 //.uncheck()
@@ -263,9 +318,5 @@ it.only('should trigger an event on the DOM element', function () {
         .get('input[type=range]').siblings('p')
         .should('have.text', '50')
 })
-    
-
 })
-
-
 })

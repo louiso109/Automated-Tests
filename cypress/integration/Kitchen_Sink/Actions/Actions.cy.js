@@ -1,5 +1,19 @@
-//Best practices when using cypress to query
 /// <reference types="cypress" />
+
+//.type()
+//.focus()
+//.blur()
+//.clear
+//.submit()
+//.click()
+//.dblclick()
+//.rightclick()
+//.check()
+//.uncheck()
+//.select()
+//.scrollIntoView()
+//cy.scollTo
+//.trigger()
 
 import { actionsPO } from "./ActionsPO.cy"
 
@@ -9,20 +23,6 @@ describe('actions', () => {
 beforeEach(() => {   
     ActionsPO.Navigate()
 })
-
-
-
-//.click
-//.dblclick
-//.rightclick
-//.type
-//.clear
-//.check
-//.uncheck
-//.select()
-//.trigger()
-//.selectFile()
-
 
 //.type()
 it('should type into the DOM element', function() {

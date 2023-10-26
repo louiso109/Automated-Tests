@@ -1,3 +1,11 @@
+VS CODE SHORTCUTS:
+Comment out multiple lines of code:
+ctrl + L
+ctrl + /
+
+Open duplicate workspace:
+">duplicate" (in workspace search box)
+
 NEW PROJECT SETUP IN GITHUB & VS CODE:
 
 FILE NAME

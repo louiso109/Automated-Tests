@@ -6,7 +6,6 @@
 //cy.screenshot()
 //cy.wrap()
 
-
 import { miscPO } from "./MiscPO.cy";
 
     describe('assertions', () => {
@@ -26,6 +25,49 @@ import { miscPO } from "./MiscPO.cy";
                 //ends the current chain and yeilds null
                 cy.contains('Cheryl').click().end()
             )
+    })
+
+    //*NOT WORKING*//
+    //cy.exec()
+    it('should execute a system command', function() {
+        // cy.exec('echo Jane Lane')
+        //     .its('stdout').should('contain', 'Jane Lane')
+        
+        // cy.log(`Platform ${Cypress.platform} architecture ${Cypress.arch}`)
+
+        // if (Cypress.platform === 'win32') {
+        //     cy.exec('print cypress.config.js')
+        //         .its('stderr').should('be empty')
+        // } else {
+        //     cy.exec('cat cypress.config.js')
+        //         .its('stderr').should('be empty')
+
+        //     cy.exec('pwd')
+        //         .its('code').should('eq', 0)
+        // }
+    })
+
+    //cy.focused()
+    it('should get the DOM elemment that has focus', function() {
+        cy.get('.misc-form').find('#name').click()
+        cy.focused().should('have.id', 'name')
+
+        cy.get('.misc-form').find('#description').click()
+        cy.focused().should('have.id', 'description')
+
+    })
+
+    //**WORKING -> sends the screenshot to screenshots folder */
+    //cy.screenshot()
+    //it('should take a screenshot', function() {
+        //cy.screenshot('my-image')
+    //})
+
+    //cy.wrap
+    it('wrap the object', function() {
+        cy.wrap({foo: 'bar'})
+            .should('have.property', 'foo')
+            .and('include', 'bar')
     })
 
 })

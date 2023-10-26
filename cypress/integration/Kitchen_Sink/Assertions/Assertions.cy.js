@@ -12,7 +12,7 @@
 import { assertionsPO } from "./AssertionsPO.cy";
 
     describe('assertions', () => {
-        const AsertionsPO = new assertionsPO()
+        const AssertionsPO = new assertionsPO()
     
     beforeEach(() => {   
         AssertionsPO.Navigate()

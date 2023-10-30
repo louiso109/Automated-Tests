@@ -127,5 +127,3 @@ it('should make an XHR request', function() {
     })
 
 })
-
-

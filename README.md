@@ -1,4 +1,5 @@
 VS CODE SHORTCUTS:
+
 Comment out multiple lines of code:
 ctrl + L
 ctrl + /
@@ -20,6 +21,7 @@ spec.cy.js
 ".cy" part makes it easier to find tests in larger projects
 
 PROJECT INITALISATION
+
 (git clone [insert url] ) (if cloning)
 
 create local file
@@ -36,7 +38,8 @@ npm install –save-dev cypress-cucumber-preprocessor
 
 npx cypress open (installs cypress folder)
 
-<<< At this point create the repo in github without a readme file and licence file can be added later>>>
+**At this point create the repo in github without a readme file and licence file can be added later**
+
 git init
 
 git add .
@@ -48,6 +51,7 @@ git remote add origin [insert git repo url]
 git push -u origin master
 
 FILE UPLOAD to Git:
+
 git add .
 
 git commit -m “first commit”
@@ -58,6 +62,7 @@ git push -u origin master
 (^"master" - branch name)
 
 TERMINAL COMMANDS:
+
 npx cypress open (UI)
 
 npx cypress run (run in the terminal)
@@ -75,6 +80,7 @@ cypress cache path - Print the path to the Cypress cache folder.
 *DONT USE* cypress cache prune - Deletes all installed Cypress versions from the cache except for the currently-installed version.
 
 GIT COMMANDS:
+
 git rebase origin/master 
     (to update branch to master if I am on feature/development/bugfixes branch)
 
@@ -94,5 +100,6 @@ git rebase master
 git rebase origin master
 
 AWESOME SITES TO TEST ON:
+
 https://practicetestautomation.com/practice-test-exceptions/
 https://github.com/BMayhew/awesome-sites-to-test-on/blob/main/readme.md

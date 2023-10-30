@@ -62,6 +62,18 @@ npx cypress open (UI)
 
 npx cypress run (run in the terminal)
 
+cypress info
+
+cypress verify - Verify that Cypress is installed correctly and is executable.
+
+cypress version
+
+cypress cache path - Print the path to the Cypress cache folder.
+
+*DONT USE* cypress cache clear - This is useful when you want Cypress to clear out all installed versions of Cypress that may be cached on your machine. After running this command, you will need to run cypress install before running Cypress again.
+
+*DONT USE* cypress cache prune - Deletes all installed Cypress versions from the cache except for the currently-installed version.
+
 GIT COMMANDS:
 git rebase origin/master 
     (to update branch to master if I am on feature/development/bugfixes branch)

@@ -1,4 +1,7 @@
-VS CODE SHORTCUTS:
+**Louis Odinot**
+**31/10/2023**
+
+**VS CODE SHORTCUTS:**
 
 Comment out multiple lines of code:
 ctrl + L
@@ -7,7 +10,7 @@ ctrl + /
 Open duplicate workspace:
 ">duplicate" (in workspace search box)
 
-NEW PROJECT SETUP IN GITHUB & VS CODE:
+**NEW PROJECT SETUP IN GITHUB & VS CODE:**
 
 FILE NAME
 
@@ -20,7 +23,7 @@ git remote -v
 spec.cy.js
 ".cy" part makes it easier to find tests in larger projects
 
-PROJECT INITALISATION
+**PROJECT INITALISATION:**
 
 (git clone [insert url] ) (if cloning)
 
@@ -61,7 +64,7 @@ git push -u origin master
 (^"origin" - remote name)
 (^"master" - branch name)
 
-TERMINAL COMMANDS:
+**TERMINAL COMMANDS:**
 
 npx cypress open (UI)
 
@@ -79,7 +82,7 @@ cypress cache path - Print the path to the Cypress cache folder.
 
 *DONT USE* cypress cache prune - Deletes all installed Cypress versions from the cache except for the currently-installed version.
 
-GIT COMMANDS:
+**GIT COMMANDS:**
 
 git rebase origin/master 
     (to update branch to master if I am on feature/development/bugfixes branch)
@@ -99,7 +102,7 @@ git rebase master
 
 git rebase origin master
 
-AWESOME SITES TO TEST ON:
+**AWESOME SITES TO TEST ON:**
 
 https://practicetestautomation.com/practice-test-exceptions/
 https://github.com/BMayhew/awesome-sites-to-test-on/blob/main/readme.md

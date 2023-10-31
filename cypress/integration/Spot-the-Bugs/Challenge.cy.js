@@ -15,29 +15,22 @@ ChallengePO.Navigate()
 })   
 
 ///Challenge spot all 15 bugs on this page
+// 1. Terms and conditions checkbox is diabled when it should be enabled.
+// 2. Results last name printout does not match what was entered into the input field.
 
-it('should enter in a first name', function () {
-    
-})
-
-it('should enter in a last name', function() {
-
-})
-
-it('should enter in a phone number', function() {
-
-})
-
-it('should select a country', function() {
-
-})
-
-it('should enter in an email address', function() {
-
-})
-
-it('should enter in a password', function() {
-
+it('should be able to register an account', function () {
+  
+  ChallengePO.EnterFirstName()
+  ChallengePO.EnterLastName()
+  ChallengePO.EnterPhoneNumber()
+  ChallengePO.SelectCountry()
+  ChallengePO.EnterEmailAddress()
+  ChallengePO.EnterPassword()
+  // ChallengePO.CheckTCBox()
+  ChallengePO.RegisterButton()
+  ChallengePO.SuccessMessage()
+  ChallengePO.RegistrationResults()
+  
 })
 
 })

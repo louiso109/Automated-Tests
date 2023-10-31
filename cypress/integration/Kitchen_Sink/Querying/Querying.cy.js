@@ -59,20 +59,20 @@ import { queryingPO } from "./QueryingPO.cy"
     //find the elements by their content using cy.contains()
 
     it('Should query the list to find the specified element', function () {
-        cy.get('.query-list')    
+        QueryList()    
             .contains('apples').should('have.class', 'first') //<li class="first"></li>
-        cy.get('.query-list')
+        QueryList()
             .contains('oranges').should('have.class', 'second') //<li class="second"></li>
-        cy.get('.query-list')
+        QueryList()
             .contains('bananas').should('have.class', 'third') //<li class="third"></li>    
-        cy.get('.query-list')
+        QueryList()
             .contains('more apples').should('have.class', 'fourth') //<li class="fourth"></li> 
     })  
 
     // we can pass a regexp to '.contains()'
 
     it('Should pass a regexp to .contains', function() {
-        cy.get('.query-list')
+        QueryList()
             .contains(/^b\w+/).should('have.class', 'third') ///^b\w+/ instead of bananas
         //cy.get('.query-list')
             //.contains('apples').should('have.class', 'first')

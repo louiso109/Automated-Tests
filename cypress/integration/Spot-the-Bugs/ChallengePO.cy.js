@@ -4,6 +4,7 @@
 
     Navigate() {
         cy.visit('https://qa-practice.netlify.app/bugs-form');
+        cy.url('https://qa-practice.netlify.app/bugs-form')
     }
 
     EnterFirstName() {
@@ -85,5 +86,44 @@
             .contains('thisisatest@test.co.nz')
     }
 
+    PhoneCharacterLengthOf9() {
+        cy.get('#phone')
+            .should('be.visible')
+            .type('123456789')
+
+    }
+
+    PhoneCharacterLengthOf10() {
+        cy.get('#phone')
+            .should('be.visible')
+            .type('1234567890')
+    }
+
+    PhoneCharacterLengthOf11() {
+        cy.get('#phone')
+            .should('be.visible')
+            .type('12345678901')
+    }
+
+    PasswordValidationEqual6() {
+
+    }
+
+    PasswordValidationBelow6() {
+        cy.get('#password')
+            .should('be.visible')
+            .type('12345678901')
+    }
+
+    PasswordValidationEqual20() {
+
+    }
+
+    PasswordValidationAbove20() {
+        cy.get('#password')
+            .should('be.visible')
+            .type('123456789012345678901') // 21
+    }
+    
 
 }

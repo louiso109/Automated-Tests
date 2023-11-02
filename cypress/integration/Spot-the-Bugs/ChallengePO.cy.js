@@ -4,6 +4,7 @@
 
     Navigate() {
         cy.visit('https://qa-practice.netlify.app/bugs-form');
+
         cy.url('https://qa-practice.netlify.app/bugs-form')
     }
 
@@ -124,6 +125,6 @@
             .should('be.visible')
             .type('123456789012345678901') // 21
     }
-    
+ 
 
 }

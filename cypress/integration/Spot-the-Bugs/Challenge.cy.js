@@ -35,6 +35,7 @@ it('should be able to register an account', function() {
   // ChallengePO.CheckTCBox()
   ChallengePO.RegisterButton()
   ChallengePO.SuccessMessage()
+
   // ChallengePO.RegistrationResults()
   
 })
@@ -75,6 +76,7 @@ it('Should verify that fields marked as mandatory are mandatory', function() {
   ChallengePO.RegisterButton()
 
 })
+
 
 })
 

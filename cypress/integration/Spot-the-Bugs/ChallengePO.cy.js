@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import { challengePO2 } from "./ChallengePO2.cy";
+
     export class challengePO {
 
     Navigate() {
@@ -13,40 +15,6 @@
             .type('First name test');
     }
 
-    EnterLastName() {
-        cy.get('#lastName[class=form-control][type=text][placeholder="Enter last name"]')
-            .click()
-            .type('Last name test');
-    }
-
-    EnterPhoneNumber() {
-        cy.get('#phone[class=form-control][type=tel][placeholder="Enter phone number"]')
-            .click()
-            .type('02134567890')
-            .should('have.value', '02134567890');
-    }
-
-    SelectCountry() {
-        cy.get('#countries_dropdown_menu[class="browser-default custom-select"]')
-        .should('be.visible')
-        .select('New Zealand')
-        .should('have.value', 'New Zealand');
-    }
-
-    EnterEmailAddress() {
-        cy.get('#emailAddress[class=form-control][type=text][aria-describedby="emailHelp"][placeholder="Enter email"][name="emailAddress"]')
-        .click()
-        .type('thisisatest@test.co.nz')
-        .should('have.value', 'thisisatest@test.co.nz');
-    }
-
-    EnterPassword() {
-        cy.get('#password[class=form-control][type=text][placeholder="Password"][name="password"]')
-            .click()
-            .type('Password1')
-            .should('have.value', 'Password1')
-    }
-    
     CheckTCBox() {
         cy.get('#exampleCheck1[class="form-check-input"][type="checkbox"]')
             // checkbox should be enabled NOT disabled
@@ -86,44 +54,110 @@
             .contains('thisisatest@test.co.nz')
     }
 
-    PhoneCharacterLengthOf9() {
+    PhoneCharacterLengthOf9Num() {
         cy.get('#phone')
-            .should('be.visible')
-            .type('123456789')
-
+        .clear()
+        .type('123456789').invoke('val')
+        .then(val=>{    
+        const myVal = val;      
+        expect(myVal).to.equal('123456789');
+        })
+    }
+    
+    PhoneCharacterLengthOf10Num() {
+        cy.get('#phone')
+            .clear()
+            .type('1234567890').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('1234567890');
+            })
     }
 
-    PhoneCharacterLengthOf10() {
+    PhoneCharacterLengthOf11Num() {
         cy.get('#phone')
-            .should('be.visible')
-            .type('1234567890')
-    }
-
-    PhoneCharacterLengthOf11() {
-        cy.get('#phone')
-            .should('be.visible')
-            .type('12345678901')
+            .clear()
+            .type('12345678901').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('12345678901');
+            })
     }
 
     PasswordValidationEqual6() {
-
+        cy.get('#password')
+            .clear()
+            .type('123456').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('123456');
+            })
     }
 
     PasswordValidationBelow6() {
-        cy.get('#password')
-            .should('be.visible')
-            .type('12345678901')
+        cy.get('##password')
+            .clear()
+            .type('123456').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('123456');
+            })
     }
 
     PasswordValidationEqual20() {
-
+        cy.get('##password')
+            .clear()
+            .type('12345678901234567890').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('123456');
+            }) // 20
     }
 
     PasswordValidationAbove20() {
-        cy.get('#password')
-            .should('be.visible')
-            .type('123456789012345678901') // 21
+        cy.get('##password')
+            .clear()
+            .type('123456789012345678901').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('123456789012345678901');
+            })  // 21
     }
-    
 
-}
+    TermsConditions() {
+        cy.get('#exampleCheck1[class=form-check-input][type=checkbox]')
+            .not('[disabled')
+            .should('be.checked')
+    }
+
+    PhoneNumberDigitsChar() {
+        cy.get('#phone[class=form-control][type=tel][placeholder="Enter phone number"]')
+        .clear()
+        .type('abcdefghi').invoke('val')
+        .then(val=>{    
+        const myVal = val;      
+        expect(myVal).to.equal('qwertyuio'); 
+        }) // 9 alphanumeric char
+    }
+
+    PhoneNumberDigitsSpecialChar() {
+        cy.get('#phone[class=form-control][type=tel][placeholder="Enter phone number"]')
+            .clear()
+            .type('abcdefghi').invoke('val')
+            .then(val=>{    
+        const myVal = val;      
+        expect(myVal).to.equal('!@#$%^&*('); 
+        }) // 9 special char
+    }
+
+    MandatoryFields() {
+        describe('challenge2', () => {
+            const ChallengePO2 = new challengePO2()
+
+            ChallengePO2.MandatoryFields()
+
+    })
+
+    }
+
+    }

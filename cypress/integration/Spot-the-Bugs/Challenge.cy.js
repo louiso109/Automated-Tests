@@ -27,23 +27,27 @@ ChallengePO.Navigate()
 it('should be able to register an account', function() {
   
   ChallengePO.EnterFirstName()
-  ChallengePO.EnterLastName()
-  ChallengePO.EnterPhoneNumber()
-  ChallengePO.SelectCountry()
-  ChallengePO.EnterEmailAddress()
-  ChallengePO.EnterPassword()
-  // ChallengePO.CheckTCBox()
+  ChallengePO.MandatoryFields()
+  // ChallengePO.CheckTCBox() // Bug
   ChallengePO.RegisterButton()
   ChallengePO.SuccessMessage()
-  // ChallengePO.RegistrationResults()
+  // ChallengePO.RegistrationResults() // Bug
   
 })
 
 // Phone length validation: at least 10 digits
-it('should check the phone number can not be less than 10', function() {
-  ChallengePO.PhoneCharacterLengthOf9() // should fail
-  ChallengePO.PhoneCharacterLengthOf10() // should pass
-  ChallengePO.PhoneCharacterLengthOf11() // should pass
+it.only('should check the phone number can not be less than 10', function() {
+  ChallengePO.PhoneCharacterLengthOf9Num() // should fail
+  ChallengePO.PhoneCharacterLengthOf10Num() // should pass
+  ChallengePO.PhoneCharacterLengthOf11Num() // should pass
+})
+
+// should verify that only digits can be added into number field
+it('should verify that only digits can be entered into phone number field', function() {
+  ChallengePO.MandatoryFields()
+  ChallengePO.PhoneNumberDigitsChar()
+  ChallengePO.PhoneNumberDigitsSpecialChar()
+
 })
 
 // Psw length validation: [6,20] characters
@@ -53,12 +57,8 @@ it('should check the password can not be more than 20', function() {
 
 // I agree with the terms and conditions
 it('should check that the terms and conditions checkbox can be checked', function() {
-
-})
-
-// should verify that only digits can be added into number field
-it('should verify that only digits can be entered into phone number field', function() {
-
+  ChallengePO.MandatoryFields()  
+  ChallengePO.TermsConditions()
 })
 
 // Mandatory fields marked as mandatory
@@ -68,12 +68,8 @@ it('should verify that only digits can be entered into phone number field', func
 // EnterPassword
 // RegisterButton
 it('Should verify that fields marked as mandatory are mandatory', function() {
-  ChallengePO.EnterLastName()
-  ChallengePO.EnterPhoneNumber()
-  ChallengePO.EnterEmailAddress()
-  ChallengePO.EnterPassword()
+  ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
-
 })
 
 })

@@ -31,13 +31,16 @@ it('should be able to register an account', function() {
   // ChallengePO.CheckTCBox() // Bug
   ChallengePO.RegisterButton()
   ChallengePO.SuccessMessage()
+
   // ChallengePO.RegistrationResults() // Bug
+
   // ChallengePO.RegistrationResults()
   
 })
 
 // Phone length validation: at least 10 digits
 it('should check the phone number can not be less than 10', function() {
+
   ChallengePO.PhoneCharacterLengthOf9Num() // should fail
   ChallengePO.PhoneCharacterLengthOf10Num() // should pass
   ChallengePO.PhoneCharacterLengthOf11Num() // should pass
@@ -58,8 +61,10 @@ it('should check the password can not be more than 20', function() {
 
 // I agree with the terms and conditions
 it('should check that the terms and conditions checkbox can be checked', function() {
+
   ChallengePO.MandatoryFields()  
   ChallengePO.TermsConditions()
+
 })
 
 // Mandatory fields marked as mandatory
@@ -69,9 +74,11 @@ it('should check that the terms and conditions checkbox can be checked', functio
 // EnterPassword
 // RegisterButton
 it('Should verify that fields marked as mandatory are mandatory', function() {
+
   ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
 })
+
 })
 
 

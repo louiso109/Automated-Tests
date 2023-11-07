@@ -21,8 +21,15 @@ ChallengePO.Navigate()
 // 4. Password box accepts more than 20 characters
 // 5. Phone number box accepts alphabetic characters
 // 6. Select country is a mandatory field but not marked (*) as one
-// 7. country is shown as select a country
+// 7. Unselected country printed on the form as "Select a country..."
 // 8. First name is displayed as a field on the registration form
+// 9. Phone number message is not displayed if all fields are left blank
+// 10. Last name field is not mandatory
+// 11. Email address field is not mandatory
+// 12. First name printed as blank " " on the form - field should not exist
+// 13. Note: All the fields marked with * are mandatory label should not be positioned under first mandatory field (which is not actually functionally mandatory)
+// 14. Phone nunber label spelt incorrectly
+// 15. Enter email address field label is "Enter email" instead of "Enter email address"
 
 it('should be able to register an account', function() {
   
@@ -33,7 +40,7 @@ it('should be able to register an account', function() {
   ChallengePO.SuccessMessage()
   // ChallengePO.RegistrationResults() // Bug
   // ChallengePO.RegistrationResults()
-  
+
 })
 
 // Phone length validation: at least 10 digits
@@ -48,12 +55,11 @@ it('should verify that only digits can be entered into phone number field', func
   ChallengePO.MandatoryFields()
   ChallengePO.PhoneNumberDigitsChar()
   ChallengePO.PhoneNumberDigitsSpecialChar()
-
 })
 
 // Psw length validation: [6,20] characters
 it('should check the password can not be more than 20', function() {
-  ChallengePO.PasswordValidationAbove()
+  ChallengePO.PasswordValidationAbove20()
 })
 
 // I agree with the terms and conditions
@@ -72,6 +78,25 @@ it('Should verify that fields marked as mandatory are mandatory', function() {
   ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
 })
+
+
+// NOT COMPLETE
+it('should verify that if all fields are left blank then the correct error message is shown', function() {
+  ChallengePO.RegisterButton() // registers with blank fields
+  ChallengePO.PasswordFailureMessage() // verifys that the password message appears
+  ChallengePO.PasswordValidationEqual20() // enters valid 20 char long password
+  ChallengePO.RegisterButton() // registers with blank fields
+  ChallengePO.PhoneNumberFailureMessage() // verifys that the phone number failure message appears
+  ChallengePO.PhoneCharacterLengthOf10Num() // enters in a valid 10 char long password
+  ChallengePO.RegisterButton() // registers with blank fields
+})
+
+it('should verify the spelling of all tge field labels', function() {
+  
+})
+
+
+
 })
 
 

@@ -4,39 +4,49 @@ import { challengePO2 } from "./ChallengePO2.cy";
 
     export class challengePO {
 
-    Navigate() {
-        cy.visit('https://qa-practice.netlify.app/bugs-form');
+        Navigate() {
+            cy.visit('https://qa-practice.netlify.app/bugs-form');
 
-        cy.url('https://qa-practice.netlify.app/bugs-form')
+            cy.url('https://qa-practice.netlify.app/bugs-form')
+        }
+
+        EnterFirstName() {
+            cy.get('#firstName[class=form-control][type=text][placeholder="Enter first name"]')
+                .click()
+                .type('First name test');
     }
 
-    EnterFirstName() {
-        cy.get('#firstName[class=form-control][type=text][placeholder="Enter first name"]')
-            .click()
-            .type('First name test');
-    }
+        CheckTCBox() {
+            cy.get('#exampleCheck1[class="form-check-input"][type="checkbox"]')
+                // checkbox should be enabled NOT disabled
+                .not('disabled')
+                .check()
+                .should('be.checked');
+        }
 
-    CheckTCBox() {
-        cy.get('#exampleCheck1[class="form-check-input"][type="checkbox"]')
-            // checkbox should be enabled NOT disabled
-            .not('disabled')
-            .check()
-            .should('be.checked');
-    }
+        RegisterButton() {
+            cy.get('#registerBtn[class="btn btn-primary"][type="submit"][onclick="registerAccount()"][ondblclick="clearResultOnDoubleClick()"]')
+                .click()
+        }
 
-    RegisterButton() {
-        cy.get('#registerBtn[class="btn btn-primary"][type="submit"][onclick="registerAccount()"][ondblclick="clearResultOnDoubleClick()"]')
-            .click()
-    }
+        SuccessMessage() {
+            cy.get('#message') //more detail
+        }
 
-    SuccessMessage() {
-        cy.get('#message')
-    }
+        PasswordFailureMessage() {
+            cy.get('#message[class="alert alert-danger"][role="alert"]')
+                // .contains('Successfully registered the following information')
+                // .should('have.class', 'alert')
+        }
 
-    RegistrationResults() {
-        cy.get('#resultFn')
-            .should('be.visible')
-            .contains('First name test')
+        PhoneNumberFailureMessage() {
+
+        }
+
+        RegistrationResults() {
+            cy.get('#resultFn')
+                .should('be.visible')
+                .contains('First name test')
 
         cy.get('#resultLn')
             .should('be.visible')
@@ -55,14 +65,18 @@ import { challengePO2 } from "./ChallengePO2.cy";
             .contains('thisisatest@test.co.nz')
     }
 
+    CheckSpellingOfFieldLabels() {
+        
+    }
+
     PhoneCharacterLengthOf9Num() {
         cy.get('#phone')
-        .clear()
-        .type('123456789').invoke('val')
-        .then(val=>{    
-        const myVal = val;      
-        expect(myVal).to.equal('123456789');
-        })
+            .clear()
+            .type('123456789').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('123456789');
+            })
     }
     
     PhoneCharacterLengthOf10Num() {
@@ -96,27 +110,27 @@ import { challengePO2 } from "./ChallengePO2.cy";
     }
 
     PasswordValidationBelow6() {
-        cy.get('##password')
+        cy.get('#password')
             .clear()
-            .type('123456').invoke('val')
+            .type('12345').invoke('val')
             .then(val=>{    
             const myVal = val;      
-            expect(myVal).to.equal('123456');
+            expect(myVal).to.equal('12345');
             })
     }
 
     PasswordValidationEqual20() {
-        cy.get('##password')
+        cy.get('#password')
             .clear()
             .type('12345678901234567890').invoke('val')
             .then(val=>{    
             const myVal = val;      
-            expect(myVal).to.equal('123456');
+            expect(myVal).to.equal('12345678901234567890');
             }) // 20
     }
 
     PasswordValidationAbove20() {
-        cy.get('##password')
+        cy.get('#password')
             .clear()
             .type('123456789012345678901').invoke('val')
             .then(val=>{    
@@ -133,23 +147,23 @@ import { challengePO2 } from "./ChallengePO2.cy";
 
     PhoneNumberDigitsChar() {
         cy.get('#phone[class=form-control][type=tel][placeholder="Enter phone number"]')
-        .clear()
-        .type('abcdefghi').invoke('val')
-        .then(val=>{    
-        const myVal = val;      
-        expect(myVal).to.equal('qwertyuio'); 
-        }) // 9 alphanumeric char
-    }
+            .clear()
+            .type('qwertyuio').invoke('val')
+            .then(val=>{    
+            const myVal = val;      
+            expect(myVal).to.equal('qwertyuio'); 
+            }) // 9 alphanumeric char
+        }
 
     PhoneNumberDigitsSpecialChar() {
         cy.get('#phone[class=form-control][type=tel][placeholder="Enter phone number"]')
             .clear()
-            .type('abcdefghi').invoke('val')
+            .type('!@#$%^&*').invoke('val')
             .then(val=>{    
-        const myVal = val;      
-        expect(myVal).to.equal('!@#$%^&*('); 
-        }) // 9 special char
-    }
+            const myVal = val;      
+            expect(myVal).to.equal('!@#$%^&*'); 
+            }) // 9 special char
+        }
 
     MandatoryFields() {
         describe('challenge2', () => {

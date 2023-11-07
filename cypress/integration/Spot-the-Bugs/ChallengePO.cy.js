@@ -6,6 +6,7 @@ import { challengePO2 } from "./ChallengePO2.cy";
 
     Navigate() {
         cy.visit('https://qa-practice.netlify.app/bugs-form');
+
         cy.url('https://qa-practice.netlify.app/bugs-form')
     }
 
@@ -123,7 +124,7 @@ import { challengePO2 } from "./ChallengePO2.cy";
             expect(myVal).to.equal('123456789012345678901');
             })  // 21
     }
-
+ 
     TermsConditions() {
         cy.get('#exampleCheck1[class=form-check-input][type=checkbox]')
             .not('[disabled')

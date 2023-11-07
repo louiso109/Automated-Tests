@@ -32,11 +32,12 @@ it('should be able to register an account', function() {
   ChallengePO.RegisterButton()
   ChallengePO.SuccessMessage()
   // ChallengePO.RegistrationResults() // Bug
+  // ChallengePO.RegistrationResults()
   
 })
 
 // Phone length validation: at least 10 digits
-it.only('should check the phone number can not be less than 10', function() {
+it('should check the phone number can not be less than 10', function() {
   ChallengePO.PhoneCharacterLengthOf9Num() // should fail
   ChallengePO.PhoneCharacterLengthOf10Num() // should pass
   ChallengePO.PhoneCharacterLengthOf11Num() // should pass
@@ -71,7 +72,6 @@ it('Should verify that fields marked as mandatory are mandatory', function() {
   ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
 })
-
 })
 
 

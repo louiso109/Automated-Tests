@@ -39,6 +39,7 @@ import { challengePO2 } from "./ChallengePO2.cy";
                 // .should('have.class', 'alert')
         }
 
+
         PhoneNumberFailureMessage() {
 
         }
@@ -65,6 +66,7 @@ import { challengePO2 } from "./ChallengePO2.cy";
             .contains('thisisatest@test.co.nz')
     }
 
+
     CheckSpellingOfFieldLabels() {
         
     }
@@ -82,6 +84,7 @@ import { challengePO2 } from "./ChallengePO2.cy";
     PhoneCharacterLengthOf10Num() {
         cy.get('#phone')
             .clear()
+
             .type('1234567890').invoke('val')
             .then(val=>{    
             const myVal = val;      
@@ -120,7 +123,9 @@ import { challengePO2 } from "./ChallengePO2.cy";
     }
 
     PasswordValidationEqual20() {
+
         cy.get('#password')
+
             .clear()
             .type('12345678901234567890').invoke('val')
             .then(val=>{    

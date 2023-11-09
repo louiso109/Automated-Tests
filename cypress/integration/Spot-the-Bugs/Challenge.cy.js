@@ -58,6 +58,7 @@ it('should verify that only digits can be entered into phone number field', func
   ChallengePO.MandatoryFields()
   ChallengePO.PhoneNumberDigitsChar()
   ChallengePO.PhoneNumberDigitsSpecialChar()
+
 })
 
 // Psw length validation: [6,20] characters
@@ -84,6 +85,7 @@ it('Should verify that fields marked as mandatory are mandatory', function() {
   ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
 })
+
 })
 
 

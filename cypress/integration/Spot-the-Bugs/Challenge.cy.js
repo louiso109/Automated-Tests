@@ -38,13 +38,16 @@ it('should be able to register an account', function() {
   // ChallengePO.CheckTCBox() // Bug
   ChallengePO.RegisterButton()
   ChallengePO.SuccessMessage()
+
   // ChallengePO.RegistrationResults() // Bug
+
   // ChallengePO.RegistrationResults()
 
 })
 
 // Phone length validation: at least 10 digits
 it('should check the phone number can not be less than 10', function() {
+
   ChallengePO.PhoneCharacterLengthOf9Num() // should fail
   ChallengePO.PhoneCharacterLengthOf10Num() // should pass
   ChallengePO.PhoneCharacterLengthOf11Num() // should pass
@@ -64,8 +67,10 @@ it('should check the password can not be more than 20', function() {
 
 // I agree with the terms and conditions
 it('should check that the terms and conditions checkbox can be checked', function() {
+
   ChallengePO.MandatoryFields()  
   ChallengePO.TermsConditions()
+
 })
 
 // Mandatory fields marked as mandatory
@@ -75,28 +80,10 @@ it('should check that the terms and conditions checkbox can be checked', functio
 // EnterPassword
 // RegisterButton
 it('Should verify that fields marked as mandatory are mandatory', function() {
+
   ChallengePO.MandatoryFields()
   ChallengePO.RegisterButton()
 })
-
-
-// NOT COMPLETE
-it('should verify that if all fields are left blank then the correct error message is shown', function() {
-  ChallengePO.RegisterButton() // registers with blank fields
-  ChallengePO.PasswordFailureMessage() // verifys that the password message appears
-  ChallengePO.PasswordValidationEqual20() // enters valid 20 char long password
-  ChallengePO.RegisterButton() // registers with blank fields
-  ChallengePO.PhoneNumberFailureMessage() // verifys that the phone number failure message appears
-  ChallengePO.PhoneCharacterLengthOf10Num() // enters in a valid 10 char long password
-  ChallengePO.RegisterButton() // registers with blank fields
-})
-
-it('should verify the spelling of all tge field labels', function() {
-  
-})
-
-
-
 })
 
 
